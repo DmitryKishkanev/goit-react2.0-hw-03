@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { Formik, Field } from 'formik';
+import PropTypes from 'prop-types';
 
 const SearchBox = ({ value, onFilter }) => {
   const fieldNameId = useId();
@@ -17,6 +18,11 @@ const SearchBox = ({ value, onFilter }) => {
       </>
     </Formik>
   );
+};
+
+SearchBox.propTypes = {
+  value: PropTypes.string.isRequired,
+  onFilter: PropTypes.func.isRequired,
 };
 
 export default SearchBox;
