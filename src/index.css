@@ -108,7 +108,7 @@ label {
 }
 
 input {
-  background-color: rgb(59, 59, 59);
+  background-color: rgb(118, 118, 118);
   color: var(--secondary-color); /* цвет текста внутри всех input */
   border: 1px solid black;
 }

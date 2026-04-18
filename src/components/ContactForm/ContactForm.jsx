@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import { object, string } from 'yup';
 import PropTypes from 'prop-types';
+import style from './ContactForm.module.css';
 
 const FeedbackSchema = object().shape({
   name: string().min(3, 'Too Short!').max(50, 'Too Lonf!').required('Required'),
@@ -38,16 +39,44 @@ const ContactForm = ({ onAdd }) => {
       onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
-      <Form>
-        <label htmlFor={nameFieldId}></label>
-        <Field type="text" name="name" id={nameFieldId} />
-        <ErrorMessage name="name" component="span" />
+      <Form className={style.form}>
+        <div className={style.fieldBox}>
+          <label className={style.label} htmlFor={nameFieldId}>
+            Name
+          </label>
+          <Field
+            className={style.field}
+            type="text"
+            name="name"
+            id={nameFieldId}
+          />
+          <ErrorMessage
+            className={style.errorMessage}
+            name="name"
+            component="span"
+          />
+        </div>
 
-        <label htmlFor={numberFieldId}></label>
-        <Field type="phone" name="number" id={numberFieldId} />
-        <ErrorMessage name="number" component="span" />
+        <div className={style.fieldBox}>
+          <label className={style.label} htmlFor={numberFieldId}>
+            Number
+          </label>
+          <Field
+            className={style.field}
+            type="phone"
+            name="number"
+            id={numberFieldId}
+          />
+          <ErrorMessage
+            className={style.errorMessage}
+            name="number"
+            component="span"
+          />
+        </div>
 
-        <button type="submit">Add</button>
+        <button className={style.formButton} type="submit">
+          Add
+        </button>
       </Form>
     </Formik>
   );
