@@ -23,6 +23,9 @@
 }
 
 .contactContent {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   margin: 0;
 
   font-weight: 400;
